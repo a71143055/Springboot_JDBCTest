@@ -31,7 +31,7 @@ public class JDBCController {
     }
     @PostMapping("/insert")
     public String insertMethod(@ModelAttribute("Person") Person person) {
-        String sql = "INSERT INTO person (naem, age, email) VALUES (?, ?, ?)";
+        String sql = "INSERT INTO person (name, age, email) VALUES (?, ?, ?)";
         int result = jdbcTemplate.update(sql, person.getName(), person.getAge(), person.getEmail());
         return "redirect:/exam01";
     }
