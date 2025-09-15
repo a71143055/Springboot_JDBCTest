@@ -2,6 +2,7 @@ package kr.ac.kopo.minn.springboot_jdbctest.repository;
 
 import jakarta.transaction.Transactional;
 import kr.ac.kopo.minn.springboot_jdbctest.domain.Member;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -10,7 +11,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface MemberRepository03 {
+public interface MemberRepository03 extends JpaRepository<Member,Integer> {
     @Transactional
     @Query(value="SELECT * FROM Member", nativeQuery = true)
     public List<Member> selectMethod();
